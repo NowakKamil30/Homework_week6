@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.akademiaspringa.homeworkweek6.Models.Movie;
 import pl.akademiaspringa.homeworkweek6.repositories.MovieRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,7 +21,7 @@ public class MovieService {
         return movieRepository.findById(id);
     }
 
-    public Iterable<Movie> getAllMovie() {
+    public List<Movie> getAllMovie() {
         return movieRepository.findAll();
     }
 

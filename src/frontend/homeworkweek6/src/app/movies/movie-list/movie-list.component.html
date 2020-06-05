@@ -1,0 +1,33 @@
+<div class="container">
+    <ngb-alert 
+    *ngIf="isError"
+    type="danger"
+    >
+    Error
+    </ngb-alert>
+    <table 
+        *ngIf="!isLoading"
+        class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Producer</th>
+          <th scope="col">Year</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let movie of movies; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ movie.name }}</td>
+          <td>{{ movie.producer }}</td>
+          <td>{{ movie.year }}</td>
+        </tr>
+        </tbody>
+      </table>
+      <span 
+      *ngIf="isLoading"
+      class="spinner-border spinner-border-sm" 
+      role="status" 
+      aria-hidden="true"></span>
+</div>

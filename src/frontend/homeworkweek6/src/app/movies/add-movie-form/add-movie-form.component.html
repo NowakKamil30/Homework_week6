@@ -1,0 +1,143 @@
+<form 
+    class="container" 
+    [formGroup]="addMovieForm"
+    (ngSubmit)="onSubmit()"
+    >
+    <ngb-alert 
+        *ngIf="isError"
+        type="danger"
+        >
+        Error
+    </ngb-alert>
+    <ngb-alert 
+        *ngIf="isSuccess"
+        type="success"
+        >
+        Success
+    </ngb-alert>
+    <div class="form-group">
+        <label for="name">Title of the movie</label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="name" 
+            placeholder="title"
+            formControlName="name"
+            [ngClass]="{'is-valid': addMovieForm.get('name').valid,
+            'is-invalid': addMovieForm.get('name').invalid}"
+            >
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="producer">Producer</label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="producer" 
+            placeholder="producer"
+            formControlName="producer"
+            [ngClass]="{'is-valid': addMovieForm.get('producer').valid,
+            'is-invalid': addMovieForm.get('producer').invalid}"
+            >
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="year">Year</label>
+        <input 
+            type="number" 
+            class="form-control" 
+            id="year" 
+            placeholder="1999"
+            formControlName="year"
+            [ngClass]="{'is-valid': addMovieForm.get('year').valid,
+            'is-invalid': addMovieForm.get('year').invalid}"
+            >
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+    </div>
+    <div formGroupName="user">
+        <h4>Your data</h4>
+        <div class="form-group">
+            <label for="firstName">First name</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="firstName" 
+                placeholder="Kamil"
+                formControlName="firstName"
+                [ngClass]="{'is-valid': addMovieForm.get('user.firstName').valid,
+                'is-invalid': addMovieForm.get('user.firstName').invalid}"
+                >
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please select a valid state.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="lastName" 
+                placeholder="Kamil"
+                formControlName="lastName"
+                [ngClass]="{'is-valid': addMovieForm.get('user.lastName').valid,
+                'is-invalid': addMovieForm.get('user.lastName').invalid}"
+                >
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please select a valid state.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">email</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="email" 
+                placeholder="Kamil"
+                formControlName="email"
+                [ngClass]="{'is-valid': addMovieForm.get('user.email').valid,
+                'is-invalid': addMovieForm.get('user.email').invalid}"
+                >
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please select a valid state.
+            </div>
+        </div>
+    </div>
+    <button
+        *ngIf="!isLoading"
+        [disabled]="addMovieForm.invalid"
+        type="submit" 
+        class="btn btn-primary">Send</button>
+        <button
+        *ngIf="isLoading"
+        type="button"
+        class="btn btn-primary"
+        >
+        <span 
+            class="spinner-border spinner-border-sm" 
+            role="status" 
+            aria-hidden="true"></span>Loading...</button>
+</form>

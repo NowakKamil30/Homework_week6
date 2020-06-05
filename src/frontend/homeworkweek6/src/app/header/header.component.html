@@ -1,0 +1,12 @@
+<header>
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <h1 style="font-size: 2rem;">Homework 6</h1>
+        <li [ngbNavItem]="1">
+          <a ngbNavLink>Movie</a>
+          <ng-template ngbNavContent>
+            <h2>Movie</h2>
+          </ng-template>
+        </li>
+      </ul>
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</header>

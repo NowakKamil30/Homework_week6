@@ -6,6 +6,7 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.akademiaspringa.homeworkweek6.Models.Movie;
+import pl.akademiaspringa.homeworkweek6.aspects.SendEmail;
 import pl.akademiaspringa.homeworkweek6.services.MovieService;
 
 
@@ -39,6 +40,7 @@ public class MovieController {
                 .orElse(ResponseEntity.noContent().build());
     }
 
+    @SendEmail
     @PostMapping()
     public ResponseEntity<Movie> postMovie(@RequestBody Movie movie) {
         Optional<Movie> movieOptional = movieService.postMovie(movie);
